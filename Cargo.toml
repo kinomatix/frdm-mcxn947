@@ -12,7 +12,7 @@ defmt-rtt = "1"
 cortex-m = { version = "0.7.7", features = ["inline-asm", "critical-section-single-core"] }
 cortex-m-rt = "0.7.3"
 
-panic-probe = { version = "1", features = ["print-defmt"] }
+panic-probe = { version = "*" , features = ["print-defmt"] }
 
 futures = { version = "0.3", default-features = false, features = [
     "async-await",
@@ -20,6 +20,10 @@ futures = { version = "0.3", default-features = false, features = [
 
 embassy-executor = { version = "0.7", features = ["defmt", "arch-cortex-m", "executor-thread"]}
 embassy-time-driver = { version = "0.2" }
-embassy-time = { version = "0.4", features = ["defmt", "defmt-timestamp-uptime"] }
+embassy-time = { version = "0.4", features = ["defmt"] }
+embassy-sync = { version = "*", features = ["defmt"] }
 systick-timer = { version = "0.1.1", features = ["cortex-m", "embassy-time-driver"]}
+
+[features]
+rt = []
 
